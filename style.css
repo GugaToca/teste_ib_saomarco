@@ -1,0 +1,690 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #036be2;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+  }
+  
+  /* Cabeçalho */
+  header {
+    background: #037af1;
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    height: 100px;  /* Tamanho fixo do cabeçalho */
+  }
+  
+  .header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .logo img {
+    height: 110px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .logo img:hover {
+    transform: scale(1.1);
+  }
+  
+  .nav-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .nav-links {
+    display: flex;
+    list-style: none;
+  }
+  
+  .nav-links li {
+    margin: 0 15px;
+  }
+  
+  .nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .nav-links li a:hover {
+    color: #ffcc00;
+    transform: translateY(-5px);
+  }
+  
+ /* Menu hambúrguer */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+    margin-left: -25px;  /* Adiciona a margem negativa para mover para a esquerda */
+  }
+  
+  .hamburger span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background-color: white;
+    border-radius: 2px;
+  }
+  
+  
+  .hamburger.open span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .hamburger.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+  
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      background-color: #2976c2;
+      position: absolute;
+      top: 100px; /* Antes estava 60px, agora ajustamos para 100px */
+      left: 0;
+      padding: 20px 0;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1000; /* Garante que o menu fique acima dos outros elementos */
+    }
+  
+    .nav-links li {
+      margin: 15px 0;
+      text-align: center;
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  
+    .nav-links.active {
+      display: flex;
+    }
+  }
+  
+  /* Banner */
+  .banner {
+    background: url('banner_ibsjm_moderno_final.png') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    flex-direction: column;
+    background-attachment: fixed;
+  }
+  
+  .banner h2 {
+    font-size: 4rem;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  }
+  
+  .banner p {
+    font-size: 1.3rem;
+    margin: 20px 0;
+    font-weight: 300;
+  }
+  
+  .btn {
+    display: inline-block;
+    padding: 8px 30px;
+    background: #fccb05e5;
+    color: #003366;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: background 0.3s, transform 0.3s;
+    margin-top: 200px;
+  }
+  
+  .btn:hover {
+    background: #e6b800;
+    transform: translateY(-5px);
+  }
+  
+  /* Seções */
+  .section {
+    padding: 80px 0;
+    background-color: #ffffffec;
+    margin-bottom: 60px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+  }
+  
+  .section h2 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #2976c2;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  .cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 30px;
+  }
+  
+  .card {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    width: 300px;
+    box-shadow: 0 8px 20px rgba(5, 22, 255, 0.603);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h3 {
+    font-size: 1.8rem;
+    color: #2976c2;
+    margin-bottom: 20px;
+  }
+  
+  .card p {
+    font-size: 1.1rem;
+    color: #555;
+  }
+
+  
+  /* Contato */
+#contato {
+  background-color: #f0f4f8;
+  padding: 80px 0;
+  box-shadow: 0 8px 20px rgba(5, 22, 255, 0.603);
+  border-radius: 12px;
+}
+
+#contato h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #003366;
+}
+
+.contato-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.contato-item {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(5, 22, 255, 0.603);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contato-item:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.contato-item h3 {
+  font-size: 1.6rem;
+  color: #2976c2;
+  margin-bottom: 15px;
+}
+
+.contato-item p {
+  font-size: 1.1rem;
+  color: #555;
+}
+
+/* Responsividade para Contato */
+@media (max-width: 768px) {
+  .contato-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contato-item {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+  
+  /* Rodapé */
+  footer {
+    background: #036be2;
+    color: white;
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 60px;
+    font-size: 1rem;
+  }
+
+  footer hr {
+    border: none;
+    border-top: 1px solid #ccc; /* cor e espessura */
+    margin: 20px 0;
+  }
+  
+  
+  .socials a {
+    color: #ffcc00;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  .socials a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .nav-links {
+      display: none;
+    }
+  
+    .nav-links.active {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .hamburger {
+      display: flex;
+    }
+  
+    .section {
+      padding: 60px 20px;
+    }
+  
+    .card {
+      width: 100%;
+      padding: 20px;
+    }
+  
+    .video-grid iframe {
+      max-width: 100%;
+    }
+  }
+  
+ /* Sobre Nós */
+#sobre {
+    background-color: #ffffffec;
+    padding: 80px 0;
+    box-shadow: 0 4px 12px rgba(40, 2, 129, 0.1);
+    border-radius: 12px;
+  }
+  
+  .sobre-nos {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  
+  .texto-sobre {
+    flex: 1 1 500px;
+    font-size: 1.2rem;
+    color: #555555;
+  }
+  
+  .texto-sobre p {
+    margin-bottom: 20px;
+    align-items: center;
+  }
+  
+  
+  #sobre h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #003366;
+  }
+  
+  /* Responsividade para Sobre Nós */
+  @media (max-width: 768px) {
+    .sobre-nos {
+      flex-direction: column;
+      text-align: center;
+    }
+ }
+ 
+ @media (max-width: 768px) {
+  .banner .btn {
+    margin-top: 200px; /* Aumenta a distância apenas no botão do banner */
+  }
+}
+
+
+
+ /* Cultos */
+#cultos {
+    background-color: #ffffffec;
+    padding: 80px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+  }
+  
+  .cultos-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+  }
+  
+  .culto-card {
+    background: white;
+    border-radius: 12px;
+    padding: 25px;
+    width: 300px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(5, 22, 255, 0.603);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .culto-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+  }
+  
+  .culto-card h3 {
+    font-size: 1.8rem;
+    color: #2976c2;
+    margin-bottom: 15px;
+  }
+  
+  .culto-card p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  #cultos h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #003366;
+  }
+  
+  /* Responsividade para Cultos */
+  @media (max-width: 768px) {
+    .cultos-grid {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .culto-card {
+      width: 100%;
+      max-width: 400px;
+    }
+  }
+  
+  /* Vídeos */
+#videos {
+  background-color: #ffffffec;
+  padding: 80px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+
+#videos h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #003366;
+}
+
+.videos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.video-card {
+  background: rgb(5, 5, 5);
+  border-radius: 12px;
+  padding: 15px;
+  width: 320px;
+  box-shadow: 0 8px 20px rgba(5, 22, 255, 0.603);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.video-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.video-card iframe {
+  width: 100%;
+  height: 180px; /* Diminuímos a altura um pouco */
+  border-radius: 8px;
+}
+
+/* Responsividade para vídeos */
+@media (max-width: 768px) {
+  .videos-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .video-card {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .video-card iframe {
+    height: 200px; /* aumenta um pouco em telas menores para melhor visualização */
+  }
+}
+
+/* Ajustes de Banner para Dispositivos Menores */
+@media (max-width: 768px) {
+  .banner {
+    height: 60vh; /* Reduz a altura do banner para celulares/tablets */
+    background-attachment: scroll; /* Remove o efeito de "fundo fixo" para melhorar performance no mobile */
+  }
+
+  .banner h2 {
+    font-size: 2.5rem; /* Diminui o tamanho do título no banner */
+  }
+
+  .banner p {
+    font-size: 1rem; /* Diminui o texto de suporte */
+  }
+}
+
+/* Agenda de Eventos */
+#eventos {
+  background-color: #f0f4f8;
+  padding: 80px 0;
+  box-shadow: 0 8px 20px rgba(5, 22, 255, 0.603);
+  border-radius: 12px;
+}
+
+#eventos h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #003366;
+}
+
+.eventos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.evento-card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(5, 22, 255, 0.603);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.evento-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.evento-card h3 {
+  font-size: 1.8rem;
+  color: #2976c2;
+  margin-bottom: 15px;
+}
+
+.evento-card p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+/* Responsividade para eventos */
+@media (max-width: 768px) {
+  .eventos-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .evento-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+
+/* Versículo sobre liderança */
+#versiculo {
+  background-color: #f0f4f8;
+  padding: 80px 0;
+  text-align: center;
+  border-radius: 12px;
+}
+
+#versiculo h2 {
+  font-size: 2.5rem;
+  color: #003366;
+  margin-bottom: 20px;
+}
+
+.versiculo p {
+  font-size: 1.4rem;
+  font-style: italic;
+  color: #555;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Liderança */
+#lideranca {
+  background-color: #ffffff;
+  padding: 80px 0;
+  border-radius: 12px;
+}
+
+#lideranca h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  color: #003366;
+}
+
+.lideres-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.lider-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  width: 250px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.lider-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(5, 22, 255, 0.603); /* mesma sombra azul para consistência */
+}
+
+.lider-card img {
+  width: 60%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 32px;
+  margin-bottom: 15px;
+}
+
+.lider-card h3 {
+  color: #2976c2;
+  margin-bottom: 5px;
+  font-size: 1.4rem;
+}
+
+.lider-card p {
+  color: #555;
+  font-size: 1.1rem;
+}
+
+/* Responsividade Liderança */
+@media (max-width: 768px) {
+  .lideres-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .lider-card {
+    width: 100%;
+    max-width: 400px;
+  }
+}
