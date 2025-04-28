@@ -688,3 +688,48 @@
     max-width: 400px;
   }
 }
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #0d47a1;
+  color: #fff;
+  padding: 15px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  font-size: 14px;
+}
+
+.cookie-banner p {
+  margin: 0;
+  flex: 1 1 300px;
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.cookie-buttons button,
+.cookie-buttons a {
+  background-color: #ffd600;
+  color: #000;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+}
+
+.cookie-buttons button:hover,
+.cookie-buttons a:hover {
+  background-color: #ffc400;
+}
